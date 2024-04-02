@@ -1,2 +1,2 @@
 # cozi.lol
-My main domain
+[My main domain](https://cozi.lol)
