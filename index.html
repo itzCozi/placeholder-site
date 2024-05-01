@@ -3,27 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>cozi.lol</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/8.5.0/octicons.min.css" />
+    <title id="site-domain1">Display Domain</title>
+    <script>
+        function extractDomain(url) {
+            var domain;
+            if (url.indexOf("://") > -1) {
+                domain = url.split('/')[2];
+            } else {
+                domain = url.split('/')[0];
+            }
+            domain = domain.split(':')[0];
+
+            return domain;
+        }
+
+        // When the page is loaded
+        window.onload = function() {
+            var url = window.location.href;
+            var domain = extractDomain(url);
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            const footerText = `${currentYear} ${domain}`
+            document.getElementById("site-domain1").textContent = domain;
+            document.getElementById("site-domain2").textContent = domain;
+            document.getElementById("footerText").textContent = footerText;
+        };
+    </script>
     <style>
       body {
         font-family: "Open Sans", sans-serif;
-        color: #252525;
+        cursor: default;
+        font-size: 1.2em;
+        color: #eaeaea;
+        background-color: #191919;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        overflow: hidden;
+      }
+      h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1.75em;
       }
       .container {
         width: 80%;
         margin: 0 auto;
-        padding: 20px;
-        background-color: #f2f2f2;
-        border: 1px solid #e6e6e6;
-        border-radius: 3.5px;
-        margin-top: 60px;
+        padding: 2em;
+        background-color: #252525;
+        border: 0.063em solid #333;
+        border-radius: 0.219em;
+        margin-top: 4.5em;
       }
       .center {
         text-align: center;
@@ -35,19 +69,40 @@
         bottom: 0;
         width: 100%;
       }
+      .linkBtn {
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        align-items: center;
+        font-size: 0.8em;
+        background-color: #404040;
+        color: #bbb;
+        border: 0.063em solid #505050;
+        transition: color 0.2s, background-color 0.2s;
+        border-radius: 0.25em;
+        width: 8em;
+        height: 2em;
+      }
+      
+      .linkBtn:hover {
+        color: #ffffff;
+        background-color: #4d4d4d;
+        border: 0.063em solid #626262;
+      }
     </style>
   </head>
 
   <body>
     <div class="container">
       <div class="center">
-        <h1>cozi.lol</h1>
-        <p>Owned by itzCozi / BadDeveloper</p>
+        <h3><span id="site-domain2"></span></h3>
+        <p style="padding-bottom: 0.4em;">
+          Owned by itzCozi / BadDeveloper
+        </p>
       </div>
-      <div style="justify-content: center; display: flex; gap: 25px;">
-        <a rel="noopener" href="https://rentry.co/itzcozi-git" target="_blank" style="text-decoration: none;">
-          <button style="display: flex; align-items: center;">
-            <svg class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" style="margin-top: 2px; margin-right: 3px;">
+      <div style="justify-content: center; display: flex; gap: 1.3em;">
+          <button class="linkBtn" onclick="window.open('https://github.com/itzCozi', '_blank');">
+            <svg class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true" style="justify-content: center; margin-right: 0.3em;">
               <path
                 fill-rule="evenodd"
                 d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
@@ -55,23 +110,18 @@
             </svg>
             GitHub
           </button>
-        </a>
-        <a rel="noopener" href="https://sudo-flix.lol" target="_blank" style="text-decoration: none;">
-          <button style="display: flex; align-items: center;">
-            <img src="mw.png" height="16px" width="16px" alt="sudo-flix lol" style="margin-top: 2px; margin-right: 3px;" />
+          <button class="linkBtn" onclick="window.open('https://docs.sudo-flix.lol/instances', '_blank');">
+            <img src="mw.png" height="20px" width="20px" alt="sudo-flix lol" style="justify-content: center; margin-right: 0.3em;" />
             sudo-flix
           </button>
-        </a>
-        <a rel="noopener" href="https://discord.gg/6bwfvxjygP" target="_blank" style="text-decoration: none;">
-          <button style="display: flex; align-items: center;">
-            <img src="discord-icon.png" alt="Discord" style="margin-top: 2px; margin-right: 3px;" />
+          <button class="linkBtn" onclick="window.open('https://discord.gg/wDhvgCFt3J', '_blank');">
+            <img src="discord-icon.png" alt="Discord" style="justify-content: center; margin-right: 0.3em;" />
             Discord
           </button>
-        </a>
       </div>
     </div>
-    <footer>
-      <p>&copy; 2024 cozi.lol</p>
+    <footer style="font-size: 0.92em; color: #c2c2c2">
+      <p>&copy; <span id="footerText"></span></p>
     </footer>
   </body>
 </html>

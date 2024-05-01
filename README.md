@@ -1,2 +1,1 @@
-# cozi.lol
-[My main domain](https://cozi.lol)
+Used for declaring a domain mine.
