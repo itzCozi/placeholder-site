@@ -1,0 +1,17 @@
+{
+  "date": "2024-09-23T12:37:28.392Z",
+  "preset": "nitro-dev",
+  "framework": {
+    "name": "nitro",
+    "version": "2.9.7"
+  },
+  "versions": {
+    "nitro": "2.9.7"
+  },
+  "dev": {
+    "pid": 18919,
+    "workerAddress": {
+      "socketPath": "/tmp/nitro/worker-18919-5.sock"
+    }
+  }
+}
